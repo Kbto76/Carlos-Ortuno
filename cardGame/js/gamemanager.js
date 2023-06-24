@@ -11,6 +11,8 @@ import { CreditsController } from "./controllers/credits/creditscontroller.js";
 export class GameManager {
     constructor() {
         var navigationContainer = document.getElementById('navigationContainer');
+        var backBtn = document.getElementById('nav-back-btn');
+        var navTitle = document.getElementById('nav-title');
         var contentContainer = document.getElementById('contentContainer');
         //this.menuController = new MenuController(this, contentContainer);//relacion de composicion/GameManager crea un nuevo MenuController        
         //this.loginController = new LoginController(this, contentContainer);
@@ -19,7 +21,7 @@ export class GameManager {
         //this.difficultyController = new DifficultyController(this, contentContainer);
         //this.themesController = new ThemesController(this, contentContainer);
         //this.creditsController = new CreditsController(this, contentContainer);
-        this.goto(5);
+        this.goto(1);
     }
 
     goto(controllerID) {

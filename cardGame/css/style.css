@@ -67,7 +67,7 @@
     background-color: brown;
     height: 35px;
     margin-left: 20px;
-    /* position: fixed;      */
+    position: fixed;      
     width:60px;
 }
 
@@ -81,5 +81,5 @@
     width:100%;
     /*border: red dotted 1px;*/
     /*background-color: blueviolet;*/
-    margin-right: 80px;
+    /*margin-right: 80px;*/
 } 
