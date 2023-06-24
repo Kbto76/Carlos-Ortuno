@@ -19,12 +19,7 @@
     
 }
 
-.navigationContainer{
-    background-color:  blue;
-    height: var(--navigationContainer--height);
-    width: 100%;
 
-}
 
 .contentContainer{
     background-color: antiquewhite;
@@ -36,7 +31,7 @@
 
 .game-Button{
     height: 35px;
-    width:30%;
+    width:20%;
     margin-top: 10px;
     background-color: brown;
     display: flex;
@@ -46,3 +41,45 @@
     font-weight: bold;
     border-radius: 10px;
 }
+
+/*NAV BAR*/
+.navigationContainer{
+    display: flex;    
+    align-items: center;
+    background-color:  blue;
+    height: var(--navigationContainer--height);
+    width: 100%;
+    flex-direction: row;
+
+    
+}
+
+.nav-back-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 7px;
+    padding-right: 7px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color:white;
+    background-color: brown;
+    height: 35px;
+    margin-left: 20px;
+    /* position: fixed;      */
+    width:60px;
+}
+
+.nav-title{
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+    font-weight: bold;
+    width: 100%;
+    /*text-align: center;*/
+    width:100%;
+    /*border: red dotted 1px;*/
+    /*background-color: blueviolet;*/
+    margin-right: 80px;
+} 

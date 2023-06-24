@@ -18,6 +18,33 @@ export class GameManager {
         //this.scoresController = new ScoresController(this, contentContainer);
         //this.difficultyController = new DifficultyController(this, contentContainer);
         //this.themesController = new ThemesController(this, contentContainer);
-        this.creditsController = new CreditsController(this, contentContainer);
+        //this.creditsController = new CreditsController(this, contentContainer);
+        this.goto(5);
+    }
+
+    goto(controllerID) {
+        switch (controllerID) {
+            case 1:
+                this.menuController = new MenuController(this, contentContainer);
+                break;
+            case 2:
+                this.loginController = new LoginController(this, contentContainer);
+                break;
+            case 3:
+                this.playController = new PlayController(this, contentContainer);
+                break;
+            case 4:
+                this.scoresController = new ScoresController(this, contentContainer);
+                break;
+            case 5:
+                this.difficultyController = new DifficultyController(this, contentContainer);
+                break;
+            case 6:
+                this.themesController = new ThemesController(this, contentContainer);
+                break;
+            case 7:
+                this.creditsController = new CreditsController(this, contentContainer);
+                break;
+        }
     }
 }
