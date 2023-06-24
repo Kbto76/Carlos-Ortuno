@@ -20,7 +20,7 @@
 }
 
 .navigationContainer{
-    background-color:  var(--primary-color);
+    background-color:  blue;
     height: var(--navigationContainer--height);
     width: 100%;
 
