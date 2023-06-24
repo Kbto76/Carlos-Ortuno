@@ -1,5 +1,35 @@
+:root{
+    --primary-color:black;
+    --secondary-color:red;
+    --background-color:  grey;
+    --navigationContainer--height: 60px;
+}
+
+*{padding:0; margin: 0;}
+
+
+
 .mainContainer{
-    width:500px;
-    height: 606px;
-    background-color: #FCF1B9;
+    display: flex;
+    flex-direction: column;
+
+    background-color: aquamarine;
+    width: 100vw; 
+    height: 100vh;
+    
+}
+
+.navigationContainer{
+    background-color:  var(--primary-color);
+    height: var(--navigationContainer--height);
+    width: 100%;
+
+}
+
+.contentContainer{
+    background-color: antiquewhite;
+    width: 100%;
+    height: cal(100%-var(--navigationContainer--height));
+    /* overflow: scroll; */
+    
 }
