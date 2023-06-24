@@ -6,6 +6,6 @@ export class GameManager {
         var navigationContainer = document.getElementById('navigationContainer');
         var contentContainer = document.getElementById('contentContainer');
 
-        this.Controller = new MenuController(this, contentContainer);
+        this.Controller = new MenuController(this, contentContainer);//relacion de composicion/GameManager crea un nuevo MenuController
     }
 }

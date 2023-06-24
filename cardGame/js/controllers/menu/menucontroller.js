@@ -1,7 +1,7 @@
 import { Controller } from "../controller.js";
 import { MenuView } from "./menuView.js";
 
-export class MenuController extends Controller {
+export class MenuController extends Controller {//relacion de Herencia de MenuController con controller
     constructor(gameManager, parent) {
         super(gameManager)
         this.view = new MenuView(this, parent);
