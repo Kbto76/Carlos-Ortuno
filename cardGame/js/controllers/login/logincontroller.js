@@ -1,5 +1,5 @@
 import { Controller } from "../controller.js";//
-import { LoginView } from "./loginView.js";
+import { LoginView } from "./loginview.js";
 
 export class LoginController extends Controller {//relacion de Herencia de MenuController con controller
     constructor(toGameManager, PcontentContainer) {//contentContainer manda la data a al menu que se ve enla pantalla
