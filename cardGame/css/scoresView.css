@@ -9,3 +9,16 @@
 
 }
 
+.scores-box{
+    padding: 10px;
+    margin-top: 20px;
+    font-size: 20px;
+    background-color: blue;
+    color: white;
+    width: 50%;
+}
+
+.scores-name{
+    font-size: 35px;
+}
+

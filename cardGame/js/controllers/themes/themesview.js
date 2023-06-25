@@ -6,7 +6,17 @@ export class ThemesView extends View {//por aca se hace la conexion al archivo V
         this.btnContainer.className = 'themesView';//aqui le damos estilo a container donde van los botones     
         var loginBtn = document.createElement('div');
         this.btnContainer.appendChild(loginBtn);
-        loginBtn.innerHTML = 'Themes';
+        loginBtn.innerHTML = 'FOOD';
+        loginBtn.className = 'game-Button';
+
+        var loginBtn = document.createElement('div');
+        this.btnContainer.appendChild(loginBtn);
+        loginBtn.innerHTML = 'FACES';
+        loginBtn.className = 'game-Button';
+
+        var loginBtn = document.createElement('div');
+        this.btnContainer.appendChild(loginBtn);
+        loginBtn.innerHTML = 'FLAGS';
         loginBtn.className = 'game-Button';
     }
 } 
