@@ -21,7 +21,7 @@ export class GameManager {
         //this.difficultyController = new DifficultyController(this, contentContainer);
         //this.themesController = new ThemesController(this, contentContainer);
         //this.creditsController = new CreditsController(this, contentContainer);
-        this.goto(2);
+        this.goto(1);
 
     }
 
