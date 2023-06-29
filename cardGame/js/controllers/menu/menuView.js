@@ -1,4 +1,4 @@
-import { createDiv, createElement, } from "../../libs/html.js";
+import { createDiv, createP, } from "../../libs/html.js";
 import { View } from "../view.js";
 
 export class MenuView extends View {//por aca se hace la conexion al archivo View
@@ -15,30 +15,16 @@ export class MenuView extends View {//por aca se hace la conexion al archivo Vie
 
         var loginBtn = createDiv({ innerHTML: 'Login', className: 'game-Button' }, this.btnContainer);
 
-        var playBtn = document.createElement('div');
-        this.btnContainer.appendChild(playBtn);
-        playBtn.innerHTML = 'Play';
-        playBtn.className = 'game-Button';
+        var playBtn = createDiv({ innerHTML: 'Play', className: 'game-Button' }, this.btnContainer);
 
-        var scoresBtn = document.createElement('div');
-        this.btnContainer.appendChild(scoresBtn);
-        scoresBtn.innerHTML = 'Scores';
-        scoresBtn.className = 'game-Button';
+        var scoresBtn = createDiv({ innerHTML: 'Scores', className: 'game-Button' }, this.btnContainer);
 
-        var difficultyBtn = document.createElement('div');
-        this.btnContainer.appendChild(difficultyBtn);
-        difficultyBtn.innerHTML = 'Difficulty';
-        difficultyBtn.className = 'game-Button';
+        var difficultyBtn = createDiv({ innerHTML: 'Difficulty', className: 'game-Button' }, this.btnContainer);
 
-        var themesBtn = document.createElement('div');
-        this.btnContainer.appendChild(themesBtn);
-        themesBtn.innerHTML = 'Themes';
-        themesBtn.className = 'game-Button';
+        var themesBtn = createDiv({ innerHTML: 'Themes', className: 'game-Button' }, this.btnContainer);
 
-        var creditsBtn = document.createElement('div');
-        this.btnContainer.appendChild(creditsBtn);
-        creditsBtn.innerHTML = 'Credits';
-        creditsBtn.className = 'game-Button';
+        var creditsBtn = createDiv({ innerHTML: 'Credits', className: 'game-Button' }, this.btnContainer);
+
 
 
 
