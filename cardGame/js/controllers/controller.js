@@ -4,8 +4,9 @@ export class Controller {
         // this.view = null;
         // this.service = null;
         // this.model = null;
+    }
 
-
-
+    delete() {
+        this.vie.delete();
     }
 }

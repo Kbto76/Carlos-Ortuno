@@ -8,6 +8,9 @@ export class View {
         this.btnContainer = createDiv({}, this.contentContainer);
         // this.btnContainer = document.createElement('div');
         // this.contentContainer.appendChild(this.btnContainer);
+    }
 
+    delete() {
+        this.contentContainer.removeChild(this.btnContainer);
     }
 }

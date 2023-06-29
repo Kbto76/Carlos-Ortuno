@@ -1,4 +1,4 @@
-import { MenuController } from "./controllers/menu/menuController.js";
+import { MenuController } from "./controllers/menu/menucontroller.js";
 import { LoginController } from "./controllers/login/logincontroller.js";
 import { PlayController } from "./controllers/play/playcontroller.js";
 import { ScoresController } from "./controllers/scores/scorescontroller.js";
@@ -11,6 +11,7 @@ import { CREDITS_STATE, DIFFICULTY_STATE, LOGIN_STATE, MENU_STATE, PLAY_STATE, S
 
 export class GameManager {
     constructor() {
+        this.controller = null;
         this.navigationContainer = document.getElementById('navigationContainer');
         this.backBtn = document.getElementById('nav-back-btn');
         this.navTitle = document.getElementById('nav-title');
@@ -28,6 +29,10 @@ export class GameManager {
 
 
     goto(state) {
+
+        if (this.controller !== null) {
+            this.controller.delete();
+        }
 
         switch (state) {
             case MENU_STATE:
