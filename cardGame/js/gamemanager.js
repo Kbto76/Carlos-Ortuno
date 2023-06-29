@@ -25,6 +25,9 @@ export class GameManager {
         //this.creditsController = new CreditsController(this, contentContainer);
         this.goto(MENU_STATE);
 
+        this.backBtn.onclick = this.goto.bind(this, MENU_STATE);
+
+        console.log(gsap);
     }
 
 
@@ -33,37 +36,39 @@ export class GameManager {
         if (this.controller !== null) {
             this.controller.delete();
         }
-
+        this.backBtn.classList.remove('hidden');
         switch (state) {
+
             case MENU_STATE:
-                this.backBtn.style.display = "none";
+                this.backBtn.classList.add('hidden');
                 this.navTitle.innerHTML = 'MENU';
-                this.menuController = new MenuController(this, this.contentContainer);
+                this.controller = new MenuController(this, this.contentContainer);
                 break;
             case LOGIN_STATE:
                 this.navTitle.innerHTML = 'LOGIN';
-                this.loginController = new LoginController(this, this.contentContainer);
+                this.controller = new LoginController(this, this.contentContainer);
                 break;
             case PLAY_STATE:
                 this.navTitle.innerHTML = 'PLAY';
-                this.playController = new PlayController(this, this.contentContainer);
+                this.controller = new PlayController(this, this.contentContainer);
                 break;
             case SCORES_STATE:
                 this.navTitle.innerHTML = 'SCORES';
-                this.scoresController = new ScoresController(this, this.contentContainer);
+                this.controller = new ScoresController(this, this.contentContainer);
                 break;
             case DIFFICULTY_STATE:
                 this.navTitle.innerHTML = 'DIFFICULTY';
-                this.difficultyController = new DifficultyController(this, this.contentContainer);
+                this.controller = new DifficultyController(this, this.contentContainer);
                 break;
             case THEMES_STATE:
                 this.navTitle.innerHTML = 'THEMES';
-                this.themesController = new ThemesController(this, this.contentContainer);
+                this.controller = new ThemesController(this, this.contentContainer);
                 break;
             case CREDITS_STATE:
                 this.navTitle.innerHTML = 'CREDITS';
-                this.creditsController = new CreditsController(this, this.contentContainer);
+                this.controller = new CreditsController(this, this.contentContainer);
                 break;
         }
+
     }
 }

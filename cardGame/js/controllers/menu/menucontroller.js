@@ -9,6 +9,7 @@ export class MenuController extends Controller {//relacion de Herencia de MenuCo
 
     goto(state) {
         this.gameManager.goto(state);
+        console.log(state);
     }
 
 }
