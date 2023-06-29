@@ -79,9 +79,11 @@
     margin-left: 20px;
     position: fixed;      
     width:60px;
-    cursor: pointer;
+    cursor: pointer;  
     
 }
+
+
 
 .nav-title{
     display: flex;

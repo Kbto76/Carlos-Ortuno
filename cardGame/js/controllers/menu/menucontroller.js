@@ -7,6 +7,10 @@ export class MenuController extends Controller {//relacion de Herencia de MenuCo
         this.view = new MenuView(this, PcontentContainer);//relacion de composicion de MenuController con MenuView         
     }
 
+    goto(state) {
+        this.gameManager.goto(state);
+    }
+
 }
 
 

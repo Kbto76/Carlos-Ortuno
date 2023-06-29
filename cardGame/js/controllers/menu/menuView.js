@@ -1,3 +1,4 @@
+import { createDiv, createElement, } from "../../libs/html.js";
 import { View } from "../view.js";
 
 export class MenuView extends View {//por aca se hace la conexion al archivo View
@@ -8,14 +9,11 @@ export class MenuView extends View {//por aca se hace la conexion al archivo Vie
         // console.log(PcontentContainer);
 
 
-        // var title = document.createElement('p');
+        // var title = createElement('p');
         // title.innerHTML = 'Menu';
-        // this.container.appendChild(title);
+        // this.btnContainer.appendChild(title);
 
-        var loginBtn = document.createElement('div');
-        this.btnContainer.appendChild(loginBtn);
-        loginBtn.innerHTML = 'Login';
-        loginBtn.className = 'game-Button';
+        var loginBtn = createDiv({ innerHTML: 'Login', className: 'game-Button' }, this.btnContainer);
 
         var playBtn = document.createElement('div');
         this.btnContainer.appendChild(playBtn);
