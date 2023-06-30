@@ -11,6 +11,10 @@
     font-family: 'Belanosima', sans-serif;    
 }
 
+*::-webkit-scrollbar{
+    display: none;
+}
+
 
 
 .mainContainer{
