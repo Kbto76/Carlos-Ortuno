@@ -7,6 +7,8 @@ export class View {
         this.btnContainer = createDiv({}, this.contentContainer);
         // this.btnContainer = document.createElement('div');
         // this.contentContainer.appendChild(this.btnContainer);
+        this.btnContainer.style.transform = `translateX(${window.innerWidth}px)`;
+        this.callback = null;
         this.show();
     }
 
@@ -15,10 +17,16 @@ export class View {
     }
 
     show() {
-        gsap.to(this.btnContainer, { x: 0, duration: 5 });
+        gsap.to(this.btnContainer, { x: 0, duration: 0.75, ease: "expo.out" });
     }
 
-    hide() {
+    hide(callback, state) {
+        this.callback = callback;
+        gsap.to(this.btnContainer, { x: window.innerWidth, duration: 0.75, ease: "expo.in", onComplete: this.hideComplete.bind(this, state) });
+    }
+
+    hideComplete(state) {
+        this.callback(state);
 
     }
 }

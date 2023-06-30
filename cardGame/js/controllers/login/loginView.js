@@ -18,7 +18,8 @@ export class LoginView extends View {//por aca se hace la conexion al archivo Vi
         loginBtn.innerHTML = 'OK';
         loginBtn.className = 'OK-Button';
 
-        this.btnContainer.style.transform = 'translateX(300px)';
+        //this.btnContainer.style.transform = 'translateX(300px)';
+
 
     }
 } 

@@ -22,27 +22,27 @@ export class GameManager {
         //this.scoresController = new ScoresController(this, contentContainer);
         //this.difficultyController = new DifficultyController(this, contentContainer);
         //this.themesController = new ThemesController(this, contentContainer);
-        //this.creditsController = new CreditsController(this, contentContainer);
-        this.goto(MENU_STATE);
-
+        //this.creditsController = new CreditsController(this, contentContainer);      
         this.backBtn.onclick = this.goto.bind(this, MENU_STATE);
 
-        console.log(gsap);
+        this.homeController = new MenuController(this, this.contentContainer);
+        this.presenting(MENU_STATE);
+        //console.log(gsap);
     }
 
-
-    goto(state) {
-
+    presenting(state) {
         if (this.controller !== null) {
             this.controller.delete();
+            this.controller = null;
         }
+
         this.backBtn.classList.remove('hidden');
         switch (state) {
 
             case MENU_STATE:
                 this.backBtn.classList.add('hidden');
                 this.navTitle.innerHTML = 'MENU';
-                this.controller = new MenuController(this, this.contentContainer);
+                //this.controller = new MenuController(this, this.contentContainer);
                 break;
             case LOGIN_STATE:
                 this.navTitle.innerHTML = 'LOGIN';
@@ -69,6 +69,14 @@ export class GameManager {
                 this.controller = new CreditsController(this, this.contentContainer);
                 break;
         }
+    }
 
+    goto(state) {
+
+        if (this.controller !== null) {
+            this.controller.hide(this.presenting.bind(this, state));
+        } else {
+            this.presenting(state);
+        }
     }
 }

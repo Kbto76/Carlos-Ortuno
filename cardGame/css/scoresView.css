@@ -1,20 +1,21 @@
 .scoresView{
     width:100%;
-    height: 100%;
+    height: 600px;
 
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    background-color: #FBF1BC;
 
 }
 
-.scores-box{
+.scores-box{    
     padding: 10px;
     margin-top: 20px;
     font-size: 20px;
     background-color: #3B77A8;
-    color: white;D
+    color: white;
     width: 50%;
 }
 
