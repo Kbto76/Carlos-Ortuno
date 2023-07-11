@@ -30,10 +30,18 @@ export class MenuView extends View {//por aca se hace la conexion al archivo Vie
 
     }
 
-    onButtonClick(state, event,) {
+    onButtonClick(state) {
         //console.log(event, state);
-        this.controller.goto(state);
+        //this.controller.goto(state);
+        var event = new CustomEvent('menu-button-click', {
+            detail: {
+                state: state,
+            },
+            bubbles: true,
+            cancelable: true,
+            composed: false,
+        });
 
-
+        this.btnContainer.dispatchEvent(event);
     }
 } 

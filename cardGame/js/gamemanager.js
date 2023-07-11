@@ -27,7 +27,16 @@ export class GameManager {
 
         this.homeController = new MenuController(this, this.contentContainer);
         this.presenting(MENU_STATE);
-        //console.log(gsap);
+        //console.log(gsap); 
+
+        this.contentContainer.addEventListener('menu-button-click', (event) => {
+            //console.dir(event.detail.state);
+            this.presenting(event.detail.state)
+        })
+
+        this.contentContainer.addEventListener('hide-complete', (event) => {
+            this.presenting(event.detail.state)
+        })
     }
 
     presenting(state) {
@@ -74,7 +83,7 @@ export class GameManager {
     goto(state) {
 
         if (this.controller !== null) {
-            this.controller.hide(this.presenting.bind(this, state));
+            this.controller.hide(state);
         } else {
             this.presenting(state);
         }

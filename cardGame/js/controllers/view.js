@@ -8,7 +8,7 @@ export class View {
         // this.btnContainer = document.createElement('div');
         // this.contentContainer.appendChild(this.btnContainer);
         this.btnContainer.style.transform = `translateX(${window.innerWidth}px)`;
-        this.callback = null;
+        //this.callback = null;
         this.show();
     }
 
@@ -20,13 +20,21 @@ export class View {
         gsap.to(this.btnContainer, { x: 0, duration: 0.75, ease: "expo.out" });
     }
 
-    hide(callback, state) {
-        this.callback = callback;
+    hide(state) {
+        //this.callback = callback;
         gsap.to(this.btnContainer, { x: window.innerWidth, duration: 0.75, ease: "expo.in", onComplete: this.hideComplete.bind(this, state) });
     }
 
     hideComplete(state) {
-        this.callback(state);
-
+        var event = new CustomEvent('hide-complete', {
+            detail: {
+                state: state,
+            },
+            bubbles: true,
+            cancelable: true,
+            composed: false,
+        })
+        //this.callback(state);
+        this.btnContainer.dispatchEvent(event);
     }
 }
