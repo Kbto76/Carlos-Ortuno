@@ -1,9 +1,9 @@
 import { View } from "../view.js";
 
-export class LoginView extends View {//por aca se hace la conexion al archivo View
+export class LoginView extends View {
     constructor(ToMenuController, PcontentContainer) {
         super(ToMenuController, PcontentContainer);
-        this.btnContainer.className = 'loginView';//aqui le damos estilo a container donde van los botones 
+        this.btnContainer.className = 'loginView';
 
         var loginTxt = document.createElement('p');
         var textBox = document.createElement('input');

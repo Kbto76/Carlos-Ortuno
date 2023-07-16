@@ -16,27 +16,10 @@ export class GameManager {
         this.backBtn = document.getElementById('nav-back-btn');
         this.navTitle = document.getElementById('nav-title');
         this.contentContainer = document.getElementById('contentContainer');
-        //this.menuController = new MenuController(this, contentContainer);//relacion de composicion/GameManager crea un nuevo MenuController        
-        //this.loginController = new LoginController(this, contentContainer);
-        //this.playController = new PlayController(this, contentContainer);
-        //this.scoresController = new ScoresController(this, contentContainer);
-        //this.difficultyController = new DifficultyController(this, contentContainer);
-        //this.themesController = new ThemesController(this, contentContainer);
-        //this.creditsController = new CreditsController(this, contentContainer);      
         this.backBtn.onclick = this.goto.bind(this, MENU_STATE);
-
         this.homeController = new MenuController(this, this.contentContainer);
         this.presenting(MENU_STATE);
-        //console.log(gsap); 
 
-        this.contentContainer.addEventListener('menu-button-click', (event) => {
-            //console.dir(event.detail.state);
-            this.presenting(event.detail.state)
-        })
-
-        this.contentContainer.addEventListener('hide-complete', (event) => {
-            this.presenting(event.detail.state)
-        })
     }
 
     presenting(state) {
@@ -51,7 +34,6 @@ export class GameManager {
             case MENU_STATE:
                 this.backBtn.classList.add('hidden');
                 this.navTitle.innerHTML = 'MENU';
-                //this.controller = new MenuController(this, this.contentContainer);
                 break;
             case LOGIN_STATE:
                 this.navTitle.innerHTML = 'LOGIN';
@@ -83,7 +65,7 @@ export class GameManager {
     goto(state) {
 
         if (this.controller !== null) {
-            this.controller.hide(state);
+            this.controller.hide(this.presenting.bind(this, state));
         } else {
             this.presenting(state);
         }

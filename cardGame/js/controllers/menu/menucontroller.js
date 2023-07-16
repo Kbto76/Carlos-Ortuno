@@ -1,10 +1,10 @@
-import { Controller } from "../controller.js";//
+import { Controller } from "../controller.js";
 import { MenuView } from "./menuview.js";
 
-export class MenuController extends Controller {//relacion de Herencia de MenuController con controller
-    constructor(toGameManager, PcontentContainer) {//contentContainer manda la data a al menu que se ve enla pantalla
+export class MenuController extends Controller {
+    constructor(toGameManager, PcontentContainer) {
         super(toGameManager)
-        this.view = new MenuView(this, PcontentContainer);//relacion de composicion de MenuController con MenuView         
+        this.view = new MenuView(this, PcontentContainer);
     }
 
     goto(state) {

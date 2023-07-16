@@ -2,9 +2,11 @@ import { createDiv } from "../libs/html.js";
 
 export class View {
     constructor(controller, parent) {
-        this.controller = controller;
-        this.contentContainer = parent;
+        this.controller = controller; //por e lmomento no se usa
+        this.contentContainer = parent;//view.js recoje la informacion desde menuView.js PcontentContainerm construye el boton delmenu y lo devuelve por el mismo PcontentContainer 
         this.btnContainer = createDiv({}, this.contentContainer);
+        // this.btnContainer = document.createElement('div');
+        // this.contentContainer.appendChild(this.btnContainer);
         this.btnContainer.style.transform = `translateX(${window.innerWidth}px)`;
         this.callback = null;
         this.show();

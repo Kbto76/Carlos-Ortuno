@@ -1,9 +1,9 @@
 import { View } from "../view.js";
 
-export class DifficultyView extends View {//por aca se hace la conexion al archivo View
+export class DifficultyView extends View {
     constructor(ToMenuController, PcontentContainer) {
         super(ToMenuController, PcontentContainer);
-        this.btnContainer.className = 'difficultyView';//aqui le damos estilo a container donde van los botones     
+        this.btnContainer.className = 'difficultyView';
         var loginBtn = document.createElement('div');
         this.btnContainer.appendChild(loginBtn);
         loginBtn.innerHTML = 'LOW';

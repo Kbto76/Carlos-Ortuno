@@ -1,6 +1,6 @@
 export class Controller {
     constructor(gameManager) {
-        this.gameManager = gameManager;//relacion de agregacion de Controller con gameManager / //por e lmomento no se usa
+        this.gameManager = gameManager;
         this.view = null;
         this.service = null;
         this.model = null;
@@ -10,7 +10,7 @@ export class Controller {
         this.view.delete();
     }
 
-    hide(state) {
-        this.view.hide(state);
+    hide(callback) {
+        this.view.hide(callback);
     }
 }

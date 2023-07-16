@@ -1,9 +1,9 @@
 import { View } from "../view.js";
 
-export class ScoresView extends View {//por aca se hace la conexion al archivo View
+export class ScoresView extends View {
     constructor(ToMenuController, PcontentContainer) {
         super(ToMenuController, PcontentContainer);
-        this.btnContainer.className = 'scoresView';//aqui le damos estilo a container donde van los botones
+        this.btnContainer.className = 'scoresView';
 
         var scoresBox = document.createElement('div');
         var scoresName = document.createElement('p');
@@ -20,7 +20,6 @@ export class ScoresView extends View {//por aca se hace la conexion al archivo V
         scoresBox.appendChild(scoresClicks);
         scoresBox.appendChild(scoresTime);
         scoresBox.appendChild(scoresTotal);
-
 
         this.btnContainer.appendChild(scoresBox);
         scoresBox.classList = 'scores-box';
@@ -42,18 +41,9 @@ export class ScoresView extends View {//por aca se hace la conexion al archivo V
         scoresBox.appendChild(scoresTime);
         scoresBox.appendChild(scoresTotal);
 
-
         this.btnContainer.appendChild(scoresBox);
         scoresBox.classList = 'scores-box';
         scoresName.classList = 'scores-name';
-
-
-
-
-
-
-
-
     }
 
 } 
