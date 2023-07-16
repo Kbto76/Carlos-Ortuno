@@ -6,7 +6,6 @@ export class ThemesController extends Controller {//relacion de Herencia de Menu
         super(toGameManager)
         this.view = new ThemesView(this, PcontentContainer);//relacion de composicion de MenuController con MenuView         
     }
-
 }
 
 
