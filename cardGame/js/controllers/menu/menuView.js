@@ -14,7 +14,16 @@ export class MenuView extends View {
         var creditsBtn = createDiv({ innerHTML: 'Credits', className: 'game-Button', onclick: this.onButtonClick.bind(this, CREDITS_STATE) }, this.btnContainer);
     }
 
-    onButtonClick(state, event,) {
-        this.controller.goto(state);
+    onButtonClick(state) {
+        // this.controller.goto(state);
+        var event = new CustomEvent('home-button-click', {
+            detail: {
+                state: state
+            },
+            bubbles: true,
+            cancelable: true,
+            composed: false,
+        })
+        this.contentContainer.dispatchEvent(event);
     }
 } 
