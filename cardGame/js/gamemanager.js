@@ -5,12 +5,15 @@ import { ScoresController } from "./controllers/scores/scorescontroller.js";
 import { DifficultyController } from "./controllers/difficulty/difficultycontroller.js";
 import { ThemesController } from "./controllers/themes/themescontroller.js";
 import { CreditsController } from "./controllers/credits/creditscontroller.js";
-import { CREDITS_STATE, DIFFICULTY_STATE, LOGIN_STATE, MENU_STATE, PLAY_STATE, SCORES_STATE, THEMES_STATE } from "./libs/constants.js";
+import { CREDITS_STATE, DIFFICULTY_MEDIUM, DIFFICULTY_STATE, LOGIN_STATE, MENU_STATE, PLAY_STATE, SCORES_STATE, THEMES_STATE, THEME_FOOD } from "./libs/constants.js";
 
 
 
 export class GameManager {
     constructor() {
+        this.difficulty = DIFFICULTY_MEDIUM;
+        this.theme = THEME_FOOD;
+
         this.controller = null;
         this.navigationContainer = document.getElementById('navigationContainer');
         this.backBtn = document.getElementById('nav-back-btn');
@@ -21,12 +24,25 @@ export class GameManager {
         this.presenting(MENU_STATE);
 
         this.contentContainer.addEventListener('home-button-click', (event) => {
-            this.presenting(event.detail.state)
-        })
+            this.presenting(event.detail.state);
+        });
 
         this.contentContainer.addEventListener('hide-complete', (Event) => {
-            this.presenting(event.detail.state)
-        })
+            this.presenting(event.detail.state);
+        });
+
+        this.contentContainer.addEventListener('save-difficulty', (event) => {
+            this.difficulty = event.detail.difficulty;
+            this.saveDifficulty();
+        });
+
+        this.contentContainer.addEventListener('save-theme', (event) => {
+            this.theme = event.detail.theme;
+            this.saveTheme();
+        });
+
+        this.loadDifficulty();
+        //this.saveDifficulty();
     }
 
     presenting(state) {
@@ -76,5 +92,25 @@ export class GameManager {
         } else {
             this.presenting(state);
         }
+    }
+
+    loadDifficulty() {
+        if (localStorage.getItem('difficulty')) {
+            this.difficulty = localStorage.getItem('difficulty');
+        }
+    }
+
+    saveDifficulty() {
+        localStorage.setItem('difficulty', this.difficulty);
+    }
+
+    loadTheme() {
+        if (localStorage.getItem('theme')) {
+            this.theme = localStorage.getItem('difficulty');
+        }
+    }
+
+    saveTheme() {
+        localStorage.setItem('theme', this.theme);
     }
 }
