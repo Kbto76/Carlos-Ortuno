@@ -1,4 +1,4 @@
-.card{    
+.cardView{    
     display: flex;
     align-items: center;
     justify-content: center;
@@ -10,7 +10,7 @@
 
 }
 
-.card-container{
+.cardView-container{
     display:flex;
     align-items: center;
     justify-content: center;
@@ -21,14 +21,14 @@
     
 } 
 
-.card-hidden{
+.cardView-hidden{
     background-color: aqua;
 }
 
-.card-sohwing{
+.cardView-sohwing{
 background-color: rgb(137, 170, 93);
 }
 
-.card-discovered{
+.cardView-discovered{
     background-color: rgb(76, 77, 165);
 }

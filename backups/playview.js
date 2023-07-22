@@ -1,5 +1,4 @@
 import { createDiv, createP } from "../../libs/html.js";
-import { CardView } from "../../views/cardview.js";
 import { ControllerView } from "../controllerview.js";
 
 export class PlayView extends ControllerView {
@@ -18,7 +17,8 @@ export class PlayView extends ControllerView {
     showCards(cards) {
         this.cardsContainer.innerHTML = '';
         cards.forEach(card => {
-            var cardView = new CardView(this.cardsContainer, card);
+            var container = createDiv({ className: 'card-container' }, this.cardsContainer);
+            createDiv({ innerHTML: card.icon, className: 'card card-hidden' }, container);
         });
     }
 

@@ -1,10 +1,10 @@
 import { createDiv } from "../libs/html.js";
+import { View } from "../views/view.js";
 
-export class ControllerView {
+export class ControllerView extends View {
     constructor(controller, parent) {
+        super(parent)
         this.controller = controller;
-        this.contentContainer = parent;
-        this.container = createDiv({ className: 'empty' }, this.contentContainer);
         this.fadeContainer = createDiv({ className: 'ControllerView-fadeContainer' }, this.container)
         this.btnContainer = createDiv({ className: 'ControllerView-container' }, this.container);
         this.btnContainer.style.transform = `translateX(${window.innerWidth}px)`;
