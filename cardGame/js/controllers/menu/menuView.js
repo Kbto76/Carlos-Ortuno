@@ -1,8 +1,8 @@
 import { CREDITS_STATE, DIFFICULTY_STATE, LOGIN_STATE, PLAY_STATE, SCORES_STATE, THEMES_STATE } from "../../libs/constants.js";
 import { createDiv, createP, } from "../../libs/html.js";
-import { View } from "../view.js";
+import { ControllerView } from "../controllerview.js";
 
-export class MenuView extends View {
+export class MenuView extends ControllerView {
     constructor(ToMenuController, PcontentContainer) {
         super(ToMenuController, PcontentContainer);
         this.btnContainer.className = 'menuView';

@@ -1,6 +1,6 @@
-import { View } from "../view.js";
+import { ControllerView } from "../controllerview.js";
 
-export class CreditsView extends View {
+export class CreditsView extends ControllerView {
     constructor(ToMenuController, PcontentContainer) {
         super(ToMenuController, PcontentContainer);
         this.btnContainer.className = 'creditsView';

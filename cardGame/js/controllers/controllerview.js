@@ -1,19 +1,19 @@
 import { createDiv } from "../libs/html.js";
 
-export class View {
+export class ControllerView {
     constructor(controller, parent) {
         this.controller = controller;
         this.contentContainer = parent;
-        this.emptyContainer = createDiv({ className: 'empty' }, this.contentContainer);
-        this.fadeContainer = createDiv({ className: 'fade' }, this.emptyContainer)
-        this.btnContainer = createDiv({}, this.emptyContainer);
+        this.container = createDiv({ className: 'empty' }, this.contentContainer);
+        this.fadeContainer = createDiv({ className: 'ControllerView-fadeContainer' }, this.container)
+        this.btnContainer = createDiv({ className: 'ControllerView-container' }, this.container);
         this.btnContainer.style.transform = `translateX(${window.innerWidth}px)`;
         //this.callback = null;
         this.show();
     }
 
     delete() {
-        this.emptyContainer.removeChild(this.btnContainer);
+        this.container.removeChild(this.btnContainer);
     }
 
     show() {
@@ -38,6 +38,6 @@ export class View {
             composed: false,
         })
         //this.callback(state);
-        this.emptyContainer.dispatchEvent(event);
+        this.container.dispatchEvent(event);
     }
 }

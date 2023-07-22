@@ -1,8 +1,8 @@
 import { THEME_FACES, THEME_FLAGS, THEME_FOOD } from "../../libs/constants.js";
 import { createDiv } from "../../libs/html.js";
-import { View } from "../view.js";
+import { ControllerView } from "../controllerview.js";
 
-export class ThemesView extends View {
+export class ThemesView extends ControllerView {
     constructor(ToMenuController, PcontentContainer) {
         super(ToMenuController, PcontentContainer);
         this.btnContainer.className = 'themesView';

@@ -1,7 +1,7 @@
 import { createDiv, createInput, createP } from "../../libs/html.js";
-import { View } from "../view.js";
+import { ControllerView } from "../controllerview.js";
 
-export class LoginView extends View {
+export class LoginView extends ControllerView {
     constructor(ToMenuController, PcontentContainer) {
         super(ToMenuController, PcontentContainer);
         this.btnContainer.className = 'loginView';
