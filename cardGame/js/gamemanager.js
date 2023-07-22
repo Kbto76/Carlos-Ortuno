@@ -21,7 +21,8 @@ export class GameManager {
         this.contentContainer = document.getElementById('contentContainer');
         this.backBtn.onclick = this.goto.bind(this, MENU_STATE);
         this.homeController = new MenuController(this, this.contentContainer);
-        this.presenting(MENU_STATE);
+        //this.presenting(MENU_STATE);
+        this.presenting(PLAY_STATE);
 
         this.contentContainer.addEventListener('home-button-click', (event) => {
             this.presenting(event.detail.state);

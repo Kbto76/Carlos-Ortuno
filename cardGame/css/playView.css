@@ -10,32 +10,9 @@
 
 }
 
-.hud-counter{
-    width:80%;
-    flex-direction: row;
-    margin-top: 20px;
-    font-size: 25px;
-    display: flex;   
-    justify-content:space-between;
-    align-items: center;
-
-    
-    
-}
-
-.reset-btn{
-    height: 35px;
-    width:20%;    
-    background-color: brown;
+.playView-cardsContainer{
     display: flex;
-    align-items: center;
     justify-content: center;
-    font-size: 20px;
-    font-weight: bold;
-    border-radius: 2px;
-    color: white;
-}
-
-.picture{
-    margin-top: 20px;
+    align-items: center;
+    flex-wrap: wrap;
 }
