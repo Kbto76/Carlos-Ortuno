@@ -6,6 +6,14 @@ export const createP = function (attributesList, parent) {
     return createElement('p', attributesList, parent);
 }
 
+export const createImg = function (attributesList, parent) {
+    return createElement('img', attributesList, parent);
+}
+
+export const createInput = function (attributesList, parent) {
+    return createElement('input', attributesList, parent);
+}
+
 const createElement = function (type, attributeList, parent) {
     var element = document.createElement(type);
     parent.appendChild(element);

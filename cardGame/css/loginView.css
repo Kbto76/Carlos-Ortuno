@@ -1,5 +1,5 @@
 .loginView{
-     width:100%;
+    width:100%;
     height: 100%;
     position: fixed;
     display: flex;
@@ -10,6 +10,12 @@
 
 } 
 
+.loginview-usernameIn{
+    font-size: 25px;
+    font-style: italic;
+    text-align: center;
+    border: none;   
+}
 
 
 .login-txt{
@@ -18,11 +24,6 @@
      
 }
 
-.login-box-txt{
-    margin-top: 10px;
-    font-size: 20px;
-    border: none;    
-}
 
 .OK-Button{
     height: 35px;
@@ -36,4 +37,5 @@
     font-weight: bold;
     border-radius: 2px;
     color:white;
+    cursor: pointer;  
 }

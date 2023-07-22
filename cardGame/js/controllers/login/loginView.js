@@ -1,3 +1,4 @@
+import { createDiv, createInput, createP } from "../../libs/html.js";
 import { View } from "../view.js";
 
 export class LoginView extends View {
@@ -5,21 +6,29 @@ export class LoginView extends View {
         super(ToMenuController, PcontentContainer);
         this.btnContainer.className = 'loginView';
 
-        var loginTxt = document.createElement('p');
-        var textBox = document.createElement('input');
-        this.btnContainer.appendChild(loginTxt);
-        this.btnContainer.appendChild(textBox);
-        loginTxt.innerHTML = 'Enter Username to play';
-        loginTxt.className = 'login-txt';
-        textBox.className = 'login-box-txt';
+        var loginTxt2 = createP({ innerHTML: 'Enter Username to play', className: 'login-txt' }, this.btnContainer);
 
-        var loginBtn = document.createElement('div');
-        this.btnContainer.appendChild(loginBtn);
-        loginBtn.innerHTML = 'OK';
-        loginBtn.className = 'OK-Button';
+        this.usernameIn = createInput({ placeholder: 'Username', className: 'loginview-usernameIn' }, this.btnContainer);
+
+        this.okBtn = createDiv({ innerHTML: 'OK', className: 'OK-Button', onclick: this.onOkBtn.bind(this) }, this.btnContainer);
 
         //this.btnContainer.style.transform = 'translateX(300px)';
+    }
+    onOkBtn() {
+        var username = this.usernameIn.value;
 
+        if (username !== '') {
+            var event = new CustomEvent('username-entered', {
+                detail: {
+                    username: username,
+                },
+                bubbles: true,
+                cancelable: true,
+                composed: true,
+            });
+            this.contentContainer.dispatchEvent(event);
+        } else {
 
+        }
     }
 } 
