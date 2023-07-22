@@ -1,3 +1,34 @@
-.card{
-    font-size: 30px;
+.card{    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    border: red 5px solid;
+    width: 45px;
+    height: 61px; 
+    
+
+}
+
+.card-container{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background-color: blueviolet;   
+    width: 50px; 
+    height: 70px;
+    margin-top: 5px;
+    
+} 
+
+.card-hidden{
+    background-color: aqua;
+}
+
+.card-sohwing{
+background-color: rgb(137, 170, 93);
+}
+
+.card-discovered{
+    background-color: rgb(76, 77, 165);
 }
