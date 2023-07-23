@@ -47,7 +47,8 @@ export class PlayController extends Controller {
         console.log(this.cards);
 
         if (this.hiddenTimer !== null) return;
-
+        this.clicks += 1;
+        this.view.updateHUD(this.clicks, this.time);
         var ShowCardevent = new CustomEvent('show-card-on-selected', {
             detail: {
                 test: 9,
