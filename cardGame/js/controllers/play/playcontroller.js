@@ -30,8 +30,9 @@ export class PlayController extends Controller {
 
     resetGame() {
         window.clearTimeout(this.hiddenTimer);
-        window.clearInterval(this.timer);
-        this.timer = null;
+        this.ResetTimer();
+        // window.clearInterval(this.timer);
+        // this.timer = null;
         this.time = 0;
         this.clicks = 0;
         this.service.getCards(this.gameManager.difficulty, this.gameManager.theme);
@@ -88,9 +89,10 @@ export class PlayController extends Controller {
                 this.view.contentContainer.dispatchEvent(event);
 
                 if (this.checkGameComplete()) {
-                    window.clearInterval(this.timer);
-                    this.timer = null;
+                    this.ResetTimer();
+                    //alert('GAME COMPLETED!');
                     console.log('GAME COMPLETED!');
+
                 }
 
             } else {
@@ -112,6 +114,11 @@ export class PlayController extends Controller {
         }
 
     }
+    ResetTimer() {
+        window.clearInterval(this.timer);
+        this.timer = null;
+    }
+
     checkGameComplete() {
         for (let i = 0; i < this.cards.length; i++) {
             const card = this.cards[1];
