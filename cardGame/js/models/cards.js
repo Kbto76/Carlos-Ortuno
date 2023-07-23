@@ -1,8 +1,8 @@
 export class Card {
-    constructor(id, icon, isDicovered = false) {
+    constructor(id, icon, isDiscovered = false) {
         this.id = id;
         this.icon = icon;
-        this.isDicovered = isDicovered;
+        this.isDiscovered = isDiscovered;
         this.isSelected = false;
     }
 }

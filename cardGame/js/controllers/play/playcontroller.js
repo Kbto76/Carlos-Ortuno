@@ -44,6 +44,7 @@ export class PlayController extends Controller {
     }
 
     onCardSelected() {
+        console.log(this.cards);
 
         if (this.hiddenTimer !== null) return;
 
@@ -70,6 +71,7 @@ export class PlayController extends Controller {
                     console.log('card2 ' + cardSelected2.icon)
                 }
             }
+
         });
 
         if (cardSelected1 !== null && cardSelected2 !== null) {
@@ -81,15 +83,15 @@ export class PlayController extends Controller {
                     bubbles: true,
                     cancelable: true,
                     composed: false,
-                })
+                });
                 this.view.contentContainer.dispatchEvent(event);
 
                 if (this.checkGameComplete()) {
-                    window.clearInterval
                     window.clearInterval(this.timer);
                     this.timer = null;
                     console.log('GAME COMPLETED!');
                 }
+
             } else {
                 this.hiddenTimer = window.setTimeout(() => {
                     var event = new CustomEvent('show-selected-card', {
@@ -107,17 +109,18 @@ export class PlayController extends Controller {
                 }, 750);
             }
         }
+
     }
     checkGameComplete() {
-        for (let i = 0; i < this.cards.lenght; i++) {
-            console.log(this.cards.lenght)
-            const card = this.cards[i];
-            if (!card.isDiscovered) {
-                return false;
+        for (let i = 0; i < this.cards.length; i++) {
+            const card = this.cards[1];
+            if (card.isDiscovered) {
+                return true
             }
+            return false
         }
-        return true;
     }
+
 
 }
 

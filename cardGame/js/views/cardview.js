@@ -20,7 +20,6 @@ export class CardView extends View {
         window.addEventListener('show-selected-card', (event) => {
             this.hide();
         })
-
         // trampa para poder ver los iconos
         //this.iconContainer.innerHTML = this.card.icon;
     }
