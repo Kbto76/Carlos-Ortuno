@@ -6,7 +6,7 @@ export const DIFFICULTY_STATE = 5;
 export const SCORES_STATE = 4;
 export const THEMES_STATE = 6;
 
-export const DIFFICULTY_LOW = 4;
+export const DIFFICULTY_LOW = 2;
 export const DIFFICULTY_MEDIUM = 10;
 export const DIFFICULTY_HIGH = 12;
 
