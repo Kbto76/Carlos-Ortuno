@@ -18,7 +18,6 @@ export class PlayService {
                     var card = new Card(cardData.id, cardData.icon);
                     cards.push(card);
                 });
-                console.log(data.cards);
             } else {
                 console.error('Error requesting cards');
             }

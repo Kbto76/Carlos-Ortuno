@@ -133,7 +133,7 @@ export class GameManager {
     loadUsername() {
         if (localStorage.getItem('username')) {
             this.username = localStorage.getItem('username');
-            console.log('USERNAME: ', this.username);
+            //console.log('USERNAME: ', this.username);
             //alert('USERNAME: ' + this.username);
         }
     }

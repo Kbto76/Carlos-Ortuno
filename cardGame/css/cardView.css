@@ -6,6 +6,7 @@
     border: red 5px solid;
     width: 45px;
     height: 61px; 
+    cursor: pointer;  
     
 
 }
@@ -25,10 +26,10 @@
     background-color: aqua;
 }
 
-.cardView-sohwing{
+.cardView-selected{
 background-color: rgb(137, 170, 93);
 }
 
 .cardView-discovered{
-    background-color: rgb(76, 77, 165);
+    background-color: rgb(160, 20, 20);
 }
