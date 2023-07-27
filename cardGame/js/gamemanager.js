@@ -22,27 +22,25 @@ export class GameManager {
         this.backBtn.onclick = this.goto.bind(this, MENU_STATE);
         this.homeController = new MenuController(this, this.contentContainer);
 
-
-
-        this.contentContainer.addEventListener('home-button-click', (event) => {
+        window.addEventListener('home-button-click', (event) => {
             this.presenting(event.detail.state);
         });
 
-        this.contentContainer.addEventListener('hide-complete', (Event) => {
+        window.addEventListener('hide-complete', (Event) => {
             this.presenting(event.detail.state);
         });
 
-        this.contentContainer.addEventListener('save-difficulty', (event) => {
+        window.addEventListener('save-difficulty', (event) => {
             this.difficulty = event.detail.difficulty;
             this.saveDifficulty();
         });
 
-        this.contentContainer.addEventListener('save-theme', (event) => {
+        window.addEventListener('save-theme', (event) => {
             this.theme = event.detail.theme;
             this.saveTheme();
         });
 
-        this.contentContainer.addEventListener('username-entered', (event) => {
+        window.addEventListener('username-entered', (event) => {
             this.username = event.detail.username;
             this.saveUsename();
             this.goto(MENU_STATE)
@@ -57,6 +55,7 @@ export class GameManager {
     }
 
     presenting(state) {
+
         if (this.controller !== null) {
             this.controller.delete();
             this.controller = null;

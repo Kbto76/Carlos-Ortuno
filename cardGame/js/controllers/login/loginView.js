@@ -26,7 +26,7 @@ export class LoginView extends ControllerView {
                 cancelable: true,
                 composed: true,
             });
-            this.contentContainer.dispatchEvent(event);
+            window.dispatchEvent(event);
         } else {
 
         }

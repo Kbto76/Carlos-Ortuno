@@ -34,7 +34,7 @@ export class CardView extends View {
             cancelable: true,
             composed: false,
         })
-        this.contentContainer.dispatchEvent(event);
+        window.dispatchEvent(event);
     }
 
     showOnSelected() {

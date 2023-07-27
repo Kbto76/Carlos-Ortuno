@@ -20,7 +20,7 @@ export class DifficultyView extends ControllerView {
             cancelable: true,
             composed: false,
         })
-        this.contentContainer.dispatchEvent(event);
+        window.dispatchEvent(event);
     }
 
 } 

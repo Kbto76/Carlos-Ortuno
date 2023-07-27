@@ -48,9 +48,11 @@ export class PlayController extends Controller {
         console.log(this.cards);
 
         if (this.hiddenTimer !== null) return;
+
         this.clicks += 1;
         this.view.updateHUD(this.clicks, this.time);
-        var ShowCardevent = new CustomEvent('show-card-on-selected', {
+
+        var showCardevent = new CustomEvent('show-card-on-selected', {
             detail: {
                 test: 9,
             },
@@ -58,7 +60,7 @@ export class PlayController extends Controller {
             cancelable: true,
             composed: false,
         })
-        this.view.contentContainer.dispatchEvent(ShowCardevent);
+        window.dispatchEvent(showCardevent);
 
         var cardSelected1 = null;
         var cardSelected2 = null;
@@ -73,7 +75,6 @@ export class PlayController extends Controller {
                     //console.log('card2 ' + cardSelected2.icon)
                 }
             }
-
         });
 
         if (cardSelected1 !== null && cardSelected2 !== null) {
@@ -86,7 +87,7 @@ export class PlayController extends Controller {
                     cancelable: true,
                     composed: false,
                 });
-                this.view.contentContainer.dispatchEvent(event);
+                window.dispatchEvent(event);
 
                 if (this.checkGameComplete()) {
                     var score = this.clicks + this.time;
@@ -95,9 +96,7 @@ export class PlayController extends Controller {
                     //alert('GAME COMPLETED!');
                     //console.log('GAME COMPLETED!');
                     //TODO Show game complete controller?
-
                 }
-
             } else {
                 this.hiddenTimer = window.setTimeout(() => {
                     var event = new CustomEvent('show-selected-card', {
@@ -108,15 +107,15 @@ export class PlayController extends Controller {
                         cancelable: true,
                         composed: false,
                     });
-                    this.view.container.dispatchEvent(event);
+                    window.dispatchEvent(event);
                     window.clearTimeout(this.hiddenTimer);
                     this.hiddenTimer = null;
 
                 }, 750);
             }
         }
-
     }
+
     ResetTimer() {
         window.clearInterval(this.timer);
         this.timer = null;
@@ -128,13 +127,9 @@ export class PlayController extends Controller {
             if (!card.isDiscovered) {
                 return false;
             }
-            return true;
         }
+        return true;
     }
-
-
-
-
 }
 
 

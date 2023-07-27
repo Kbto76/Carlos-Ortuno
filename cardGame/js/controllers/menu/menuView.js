@@ -23,6 +23,6 @@ export class MenuView extends ControllerView {
             cancelable: true,
             composed: false,
         })
-        this.contentContainer.dispatchEvent(event);
+        window.dispatchEvent(event);
     }
 } 

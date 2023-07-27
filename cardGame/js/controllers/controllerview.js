@@ -13,7 +13,7 @@ export class ControllerView extends View {
     }
 
     delete() {
-        this.container.removeChild(this.btnContainer);
+        this.parent.removeChild(this.container);
     }
 
     show() {
@@ -38,6 +38,6 @@ export class ControllerView extends View {
             composed: false,
         })
         //this.callback(state);
-        this.container.dispatchEvent(event);
+        window.dispatchEvent(event);
     }
 }
