@@ -13,7 +13,7 @@ export class GameManager {
     constructor() {
         this.difficulty = DIFFICULTY_MEDIUM;
         this.theme = THEME_FOOD;
-
+        this.username = '';
         this.controller = null;
         this.navigationContainer = document.getElementById('navigationContainer');
         this.backBtn = document.getElementById('nav-back-btn');
@@ -52,7 +52,7 @@ export class GameManager {
         this.loadTheme();
         this.loadUsername();
 
-        this.presenting(PLAY_STATE);
+        this.presenting(MENU_STATE);
         //this.saveDifficulty();
     }
 

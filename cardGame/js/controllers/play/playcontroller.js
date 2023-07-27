@@ -67,10 +67,10 @@ export class PlayController extends Controller {
             if (!card.isDiscovered) {
                 if (cardSelected1 === null && card.isSelected) {
                     cardSelected1 = card;
-                    console.log('card1 ' + cardSelected1.icon)
+                    //console.log('card1 ' + cardSelected1.icon)
                 } else if (cardSelected2 === null && card.isSelected) {
                     cardSelected2 = card;
-                    console.log('card2 ' + cardSelected2.icon)
+                    //console.log('card2 ' + cardSelected2.icon)
                 }
             }
 
@@ -90,8 +90,11 @@ export class PlayController extends Controller {
 
                 if (this.checkGameComplete()) {
                     this.ResetTimer();
+                    var score = this.clicks + this.time;
+                    this.service.sendScore(score, this.clicks, this.time, this.gameManager.username);
                     //alert('GAME COMPLETED!');
-                    console.log('GAME COMPLETED!');
+                    //console.log('GAME COMPLETED!');
+                    //TODO Show game complete controller?
 
                 }
 
