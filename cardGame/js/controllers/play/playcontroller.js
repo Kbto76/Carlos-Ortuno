@@ -124,13 +124,15 @@ export class PlayController extends Controller {
 
     checkGameComplete() {
         for (let i = 0; i < this.cards.length; i++) {
-            const card = this.cards[1];
-            if (card.isDiscovered) {
-                return true
+            const card = this.cards[i];
+            if (!card.isDiscovered) {
+                return false;
             }
-            return false
+            return true;
         }
     }
+
+
 
 
 }
