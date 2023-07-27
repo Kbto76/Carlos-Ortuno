@@ -6,3 +6,4 @@ export class View {
         this.container = createDiv({ className: 'empty' }, this.contentContainer);
     }
 }
+

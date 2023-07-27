@@ -29,10 +29,10 @@ export class PlayController extends Controller {
     }
 
     resetGame() {
-        window.clearTimeout(this.hiddenTimer);
+        //window.clearTimeout(this.hiddenTimer);
         this.ResetTimer();
-        // window.clearInterval(this.timer);
-        // this.timer = null;
+        //// window.clearInterval(this.timer);
+        //// this.timer = null;
         this.time = 0;
         this.clicks = 0;
         this.service.getCards(this.gameManager.difficulty, this.gameManager.theme);
@@ -89,9 +89,9 @@ export class PlayController extends Controller {
                 this.view.contentContainer.dispatchEvent(event);
 
                 if (this.checkGameComplete()) {
-                    this.ResetTimer();
                     var score = this.clicks + this.time;
                     this.service.sendScore(score, this.clicks, this.time, this.gameManager.username);
+                    this.ResetTimer();
                     //alert('GAME COMPLETED!');
                     //console.log('GAME COMPLETED!');
                     //TODO Show game complete controller?
