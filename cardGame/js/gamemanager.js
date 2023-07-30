@@ -50,7 +50,7 @@ export class GameManager {
         this.loadTheme();
         this.loadUsername();
 
-        this.presenting(MENU_STATE);
+        this.presenting(SCORES_STATE);
         //this.saveDifficulty();
     }
 
