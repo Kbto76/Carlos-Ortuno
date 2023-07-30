@@ -7,8 +7,7 @@
     width: 80%;
     background-color:#3B77A8;
     margin-bottom: 10px;
-    border-radius: 2
-px;
+    border-radius: 2px;    
 }
 
 .scoreView-nameContainer{
@@ -17,7 +16,8 @@ px;
     align-items: center;
 
     color: yellow;
-    font-size: 30px;
+    font-size: 25px;
+    padding-top: 5px;
 }
 
 .scoreView-valuesContainer{
@@ -26,6 +26,7 @@ px;
     align-items: center;
     flex-direction: row;
     width: 100%;
+    padding-bottom: 5px;
 }
 
 .scoreView-valueContainer{
@@ -33,4 +34,13 @@ px;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+.scoreView-value-title{
+    color: white;
+}
+
+.scoreView-value-description{
+    color: #E3752A;
+    font-size: 20px;
 }

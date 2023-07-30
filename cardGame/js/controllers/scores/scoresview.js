@@ -13,4 +13,5 @@ export class ScoresView extends ControllerView {
             var scoreView = new ScoreView(this.btnContainer, score);
         });
     }
-} 
+}
+

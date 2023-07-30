@@ -14,11 +14,13 @@ export class ScoreView extends View {
         var timeContainer = createDiv({ className: 'scoreView-valueContainer' }, valuesContainer);
 
         createP({ innerHTML: this.score.username }, nameContainer);
-        createP({ innerHTML: 'SCORE' }, scoreContainer);
-        createP({ innerHTML: this.score.score }, scoreContainer);
-        createP({ innerHTML: 'CLICKS' }, clicksContainer);
-        createP({ innerHTML: this.score.clicks }, clicksContainer);
-        createP({ innerHTML: 'TIME' }, timeContainer);
-        createP({ innerHTML: this.score.time }, timeContainer);
+        createP({ innerHTML: 'SCORE', className: 'scoreView-value-title' }, scoreContainer);
+        createP({ innerHTML: this.score.score, className: 'scoreView-value-description' }, scoreContainer);
+        createP({ innerHTML: 'CLICKS', className: 'scoreView-value-title' }, clicksContainer);
+        createP({ innerHTML: this.score.clicks, className: 'scoreView-value-description' }, clicksContainer);
+        createP({ innerHTML: 'TIME', className: 'scoreView-value-title' }, timeContainer);
+        createP({ innerHTML: this.score.time, className: 'scoreView-value-description' }, timeContainer);
+
+
     }
 }

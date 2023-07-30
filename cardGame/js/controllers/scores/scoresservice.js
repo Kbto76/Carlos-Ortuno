@@ -8,8 +8,8 @@ export class ScoresService extends Service {
     }
     getScores() {
         var scores = [];
-        var url = '../../../data/score.json';
-        //var url = `https://us-central1-cenfoprojectsbackend.cloudfunctions.net/app/scores`;
+        //var url = '../../../data/score.json';
+        var url = `https://us-central1-cenfoprojectsbackend.cloudfunctions.net/app/scores`;
         var request = new XMLHttpRequest();
         request.open('get', url);
         request.onload = () => {

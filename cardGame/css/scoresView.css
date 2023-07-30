@@ -1,5 +1,5 @@
 .scoresView{
-     width:100%;
+    width:100%;
     height: 100%;
     position: fixed;
     display: flex;
@@ -7,19 +7,11 @@
     justify-content: center;
     flex-direction: column;
     background-color: #FBF1BC;
-
+    overflow: hidden;
+    overflow: scroll;   
 }
 
-.scores-box{    
-    padding: 10px;
-    margin-top: 20px;
-    font-size: 20px;
-    background-color: #3B77A8;
-    color: white;
-    width: 50%;
-}
 
-.scores-name{
-    font-size: 35px;
-}
+
+
 
