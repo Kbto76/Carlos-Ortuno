@@ -15,7 +15,15 @@ app.get('/cards/:difficulty/:theme', (request, response) => {
         if (request.params.difficulty !== null && request.params.type !== null) {
             const difficulty = request.params.difficulty;
             const theme = request.params.theme;
-            data.cards = getCards(difficulty);
+            var cards = getCards(difficulty);
+            cards.forEach(card => {
+                data.cards.push(card);
+            });
+            cards.forEach(card => {
+                data.cards.push(card);
+            });
+
+            shuffleArray(data.cards);
         }
     }
 
@@ -39,7 +47,7 @@ function randomInteger(min, max) {
 
 function getIconIdenx(iconIndex) {
     let newIconIndex = randomInteger(0, (food.length - 1));
-    if (iconindex === newIconIndex) {
+    if (iconIndex === newIconIndex) {
         return getIconIdenx(iconIndex);
     }
     return newIconIndex;
@@ -60,19 +68,12 @@ function getCards(difficulty) {
     return cards;
 };
 
-getCards(4);
-
-// function getIcons(icons) {
-//     var icons = [];
-//     var icon = getIcon('');
-//     icons.push(icon);
-//     return icons;
-// }
-
-
-// function getIcon() {
-//     return food[randomInteger(0, (food.length - 1))];
-// }
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
 
 // var cards = `{
 //     "cards": [
