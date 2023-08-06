@@ -15,37 +15,18 @@ app.get('/cards/:difficulty/:theme', (request, response) => {
         if (request.params.difficulty !== null && request.params.type !== null) {
             const difficulty = request.params.difficulty;
             const theme = request.params.theme;
-
-            console.log(difficulty);
-
-            for (let i = 0; i < difficulty; i++) {
-                data.cards.push({
-                    "isDiscovered": false,
-                    "icon": getIcons(),
-                    "id": (i + 1)
-
-                });
-
-                data.cards.push({
-                    "isDiscovered": false,
-                    "icon": getIcons(),
-                    "id": (i + 1)
-
-                });
-
-            }
+            data.cards = getCards(difficulty);
         }
     }
 
     response.send(JSON.stringify(data));
-})
+});
 
 app.get('/scores', (request, response) => {
     console.log(request);
     console.log(request);
     response.send('Lista de scores');
 });
-
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
@@ -56,9 +37,42 @@ function randomInteger(min, max) {
 }
 
 
-function getIcon() {
-    return food[randomInteger(0, (food.length - 1))];
-}
+function getIconIdenx(iconIndex) {
+    let newIconIndex = randomInteger(0, (food.length - 1));
+    if (iconindex === newIconIndex) {
+        return getIconIdenx(iconIndex);
+    }
+    return newIconIndex;
+};
+
+function getCards(difficulty) {
+    var cards = [];
+    for (let i = 0; i < difficulty; i++) {
+        var iconIndex = getIconIdenx(-1);
+        var card = {
+            "isDiscovered": false,
+            "icon": food[iconIndex],
+            "id": iconIndex
+        }
+        cards.push(card);
+    }
+    console.log(cards);
+    return cards;
+};
+
+getCards(4);
+
+// function getIcons(icons) {
+//     var icons = [];
+//     var icon = getIcon('');
+//     icons.push(icon);
+//     return icons;
+// }
+
+
+// function getIcon() {
+//     return food[randomInteger(0, (food.length - 1))];
+// }
 
 // var cards = `{
 //     "cards": [
