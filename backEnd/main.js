@@ -7,6 +7,10 @@ app.use(cors());
 
 const food = ['🍏', '🍎', '🍐', '🍊', '🍋', '🍌', '🍉', '🍇', '🍓', '🍈🍒', '🍑', '🍍', '🥥', '🥝', '🍅', '🥑', '🍆', '🌶', '🥒', '🥦', '🌽', '🥕', '🥗', '🥔', '🍠', '🥜', '🍯', '🍞', '🥐', '🥖', '🥨', '🥞', '🧀', '🍗', '🍖', '🥩', '🍤', '🥚', '🍳', '🥓', '🍔', '🍟', '🌭', '🍕', '🍝', '🥪', '🥙', '🌮', '🌯', '🍜', '🥘', '🍲', '🥫', '🍥', '🍣', '🍱', '🍛', '🍙', '🍚', '🍘', '🥟', '🍢', '🍡', '🍧', '🍨', '🍦', '🍰', '🎂', '🥧', '🍮', '🍭', '🍬', '🍫', '🍿', '🍩', '🍪', '🥠', '☕', '🍵', '🥣', '🍼', '🥤', '🥛🍺', '🍻', '🍷', '🥂', '🥃', '🍸', '🍹', '🍾', '🍶', '🥄', '🍴', '🍽', '🥢', '🥡'];
 
+const faces = ['😀', '😬', '😁', '😂', '😃', '😄', '🤣', '😅', '😆', '😇', '😉', '😊', '🙂', '🙃', '😋', '😌', '😍', '😘', '😗', '😙', '😚', '🤪', '😜', '😝', '😛', '🤑', '😎', '🤓', '🧐', '🤠', '🤗', '🤡', '😏', '😶', '😐', '😑', '😒', '🙄', '🤨', '🤔', '🤫', '🤭', '🤥', '😳', '😞', '😟', '😠', '😡', '🤬', '😔', '😕', '🙁', '☹', '😣', '😖', '😫', '😩', '😤', '😮', '😱', '😨', '😰', '😯', '😦', '😧', '😢', '😥', '😪', '🤤', '😓', '😭', '🤩', '😵', '😲', '🤯', '🤐', '😷', '🤕', '🤒', '🤮', '🤢', '🤧', '😴', '😈', '👿', '👹', '👺', '💩', '👻', '💀', '☠', '👽', '🤖', '🎃'];
+
+const flags = ['🐶', '🐱', '🐭', '🐹', '🐰', '🐻', '🐼', '🐨', '🐯', '🦁', '🐮', '🐷', '🐸', '🐵', '🙈', '🙉', '🙊', '🦍', '🐔', '🐧', '🐦', '🐥', '🐺', '🦊', '🐗', '🐴', '🦓', '🦌', '🦄', '🐝', '🐛', '🦋', '🐌', '🐞', '🐜', '🦗', '', '🦂', '🐢', '🐍', '🦎', '🦀', '🦑', '🐙', '🦐', '🐠', '🐟', '🐡', '🐬', '🐳', '🐊', '🐆', '🐅', '🐃', '🐂', '🐄', '🐪', '🐘', '🦏', '🐐', '🐏', '🐑', '🐎', '🐖', '🦇', '🐓', '🦃', '🦅', '🦆', '🦉', '🐕', '🐩', '🐈', '🐇', '🐀'];
+
 app.get('/cards/:difficulty/:theme', (request, response) => {
 
     var data = { cards: [] };
@@ -15,7 +19,7 @@ app.get('/cards/:difficulty/:theme', (request, response) => {
         if (request.params.difficulty !== null && request.params.type !== null) {
             const difficulty = request.params.difficulty;
             const theme = request.params.theme;
-            var cards = getCards(difficulty);
+            var cards = getCards(difficulty, theme);
             cards.forEach(card => {
                 data.cards.push(card);
             });
@@ -45,21 +49,38 @@ function randomInteger(min, max) {
 }
 
 
-function getIconIdenx(iconIndex) {
-    let newIconIndex = randomInteger(0, (food.length - 1));
+function getIconIdenx(iconIndex, iconList) {
+    let newIconIndex = randomInteger(0, (iconList.length - 1));
     if (iconIndex === newIconIndex) {
         return getIconIdenx(iconIndex);
     }
     return newIconIndex;
 };
 
-function getCards(difficulty) {
+function getCards(difficulty, theme) {
     var cards = [];
+
+    var iconList = null;
+
+    switch (theme) {
+        case 'food':
+            iconList = food;
+            break;
+        case 'flags':
+            iconList = flags;
+            break;
+        case 'faces':
+            iconList = faces;
+            break;
+        default:
+            break;
+    }
+
     for (let i = 0; i < difficulty; i++) {
         var iconIndex = getIconIdenx(-1);
         var card = {
             "isDiscovered": false,
-            "icon": food[iconIndex],
+            "icon": iconList[iconIndex],
             "id": iconIndex
         }
         cards.push(card);
@@ -75,87 +96,3 @@ function shuffleArray(array) {
     }
 }
 
-// var cards = `{
-//     "cards": [
-//         {
-//             "isDiscovered": false,
-//             "icon": "🥜",
-//             "id": 49
-//         },
-//         {
-//             "isDiscovered": false,
-//             "icon": "🍏",
-//             "id": 0
-//         },
-//         {
-//             "isDiscovered": false,
-//             "icon": "🥝",
-//             "id": 16
-//         },
-//         {
-//             "isDiscovered": false,
-//             "icon": "🥝",
-//             "id": 16
-//         },
-//         {
-//             "isDiscovered": false,
-//             "icon": "🥭",
-//             "id": 13
-//         },
-//         {
-//             "isDiscovered": false,
-//             "icon": "🥭",
-//             "id": 13
-//         },
-//         {
-//             "isDiscovered": false,
-//             "icon": "🍉",
-//             "id": 6
-//         },
-//         {
-//             "isDiscovered": false,
-//             "icon": "🥒",
-//             "id": 22
-//         },
-//         {
-//             "isDiscovered": false,
-//             "icon": "🍹",
-//             "id": 56
-//         },
-//         {
-//             "isDiscovered": false,
-//             "icon": "🥜",
-//             "id": 49
-//         },
-//         {
-//             "isDiscovered": false,
-//             "icon": "🍹",
-//             "id": 56
-//         },
-//         {
-//             "isDiscovered": false,
-//             "icon": "🍏",
-//             "id": 0
-//         },
-//         {
-//             "isDiscovered": false,
-//             "icon": "🥎",
-//             "id": 53
-//         },
-//         {
-//             "isDiscovered": false,
-//             "icon": "🍉",
-//             "id": 6
-//         },
-//         {
-//             "isDiscovered": false,
-//             "icon": "🥎",
-//             "id": 53
-//         },
-//         {
-//             "isDiscovered": false,
-//             "icon": "🥒",
-//             "id": 22
-//         }
-//     ]
-// }`;
