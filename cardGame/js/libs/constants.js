@@ -12,4 +12,4 @@ export const DIFFICULTY_HIGH = 8;
 
 export const THEME_FACES = 'faces';
 export const THEME_FOOD = 'food';
-export const THEME_FLAGS = 'flags'; 
+export const THEME_ANIMALS = 'animals'; 

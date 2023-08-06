@@ -1,4 +1,4 @@
-import { THEME_FACES, THEME_FLAGS, THEME_FOOD } from "../../libs/constants.js";
+import { THEME_ANIMALS, THEME_FACES, THEME_FOOD } from "../../libs/constants.js";
 import { createDiv } from "../../libs/html.js";
 import { ControllerView } from "../controllerview.js";
 
@@ -9,7 +9,7 @@ export class ThemesView extends ControllerView {
 
         createDiv({ innerHTML: 'FOOD', className: 'game-Button', onclick: this.onButtonClick.bind(this, THEME_FOOD) }, this.btnContainer);
         createDiv({ innerHTML: 'FACES', className: 'game-Button', onclick: this.onButtonClick.bind(this, THEME_FACES) }, this.btnContainer);
-        createDiv({ innerHTML: 'FLAGS', className: 'game-Button', onclick: this.onButtonClick.bind(this, THEME_FLAGS) }, this.btnContainer);
+        createDiv({ innerHTML: 'ANIMALS', className: 'game-Button', onclick: this.onButtonClick.bind(this, THEME_ANIMALS) }, this.btnContainer);
     }
     onButtonClick(theme) {
         var event = new CustomEvent('save-theme', {
