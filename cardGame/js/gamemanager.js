@@ -8,7 +8,6 @@ import { CreditsController } from "./controllers/credits/creditsController.js";
 import { CREDITS_STATE, DIFFICULTY_MEDIUM, DIFFICULTY_STATE, LOGIN_STATE, MENU_STATE, PLAY_STATE, SCORES_STATE, THEMES_STATE, THEME_FOOD } from "./libs/constants.js";
 
 
-
 export class GameManager {
     constructor() {
         this.difficulty = DIFFICULTY_MEDIUM;
