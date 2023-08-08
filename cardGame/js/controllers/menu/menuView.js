@@ -1,6 +1,6 @@
 import { CREDITS_STATE, DIFFICULTY_STATE, LOGIN_STATE, PLAY_STATE, SCORES_STATE, THEMES_STATE } from "../../libs/constants.js";
 import { createDiv, createP, } from "../../libs/html.js";
-import { ControllerView } from "../controllerview.js";
+import { ControllerView } from "../controllerView.js";
 
 export class MenuView extends ControllerView {
     constructor(ToMenuController, PcontentContainer) {

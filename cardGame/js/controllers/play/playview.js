@@ -1,6 +1,6 @@
 import { createDiv, createP } from "../../libs/html.js";
-import { CardView } from "../../views/cardview.js";
-import { ControllerView } from "../controllerview.js";
+import { CardView } from "../../views/cardView.js";
+import { ControllerView } from "../controllerView.js";
 
 export class PlayView extends ControllerView {
     constructor(ToMenuController, PcontentContainer) {

@@ -1,5 +1,5 @@
 import { createDiv, createInput, createP } from "../../libs/html.js";
-import { ControllerView } from "../controllerview.js";
+import { ControllerView } from "../controllerView.js";
 
 export class LoginView extends ControllerView {
     constructor(ToMenuController, PcontentContainer) {

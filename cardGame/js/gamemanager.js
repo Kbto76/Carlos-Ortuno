@@ -1,10 +1,10 @@
-import { MenuController } from "./controllers/menu/menucontroller.js";
-import { LoginController } from "./controllers/login/logincontroller.js";
-import { PlayController } from "./controllers/play/playcontroller.js";
-import { ScoresController } from "./controllers/scores/scorescontroller.js";
-import { DifficultyController } from "./controllers/difficulty/difficultycontroller.js";
-import { ThemesController } from "./controllers/themes/themescontroller.js";
-import { CreditsController } from "./controllers/credits/creditscontroller.js";
+import { MenuController } from "./controllers/menu/menuController.js";
+import { LoginController } from "./controllers/login/loginController.js";
+import { PlayController } from "./controllers/play/playController.js";
+import { ScoresController } from "./controllers/scores/scoresController.js";
+import { DifficultyController } from "./controllers/difficulty/difficultyController.js";
+import { ThemesController } from "./controllers/themes/themesController.js";
+import { CreditsController } from "./controllers/credits/creditsController.js";
 import { CREDITS_STATE, DIFFICULTY_MEDIUM, DIFFICULTY_STATE, LOGIN_STATE, MENU_STATE, PLAY_STATE, SCORES_STATE, THEMES_STATE, THEME_FOOD } from "./libs/constants.js";
 
 

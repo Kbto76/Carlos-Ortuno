@@ -1,5 +1,5 @@
 import { Controller } from "../controller.js";//
-import { CreditsView } from "./creditsview.js";
+import { CreditsView } from "./creditsView.js";
 
 export class CreditsController extends Controller {
     constructor(toGameManager, PcontentContainer) {

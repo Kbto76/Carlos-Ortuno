@@ -1,6 +1,6 @@
 
-import { ControllerView } from "../controllerview.js";
-import { ScoreView } from "./scoreview.js";
+import { ControllerView } from "../controllerView.js";
+import { ScoreView } from "./scoreView.js";
 
 export class ScoresView extends ControllerView {
     constructor(ToMenuController, PcontentContainer) {

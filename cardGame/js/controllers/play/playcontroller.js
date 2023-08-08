@@ -1,6 +1,6 @@
 import { Controller } from "../controller.js";
-import { PlayService } from "./playservice.js";
-import { PlayView } from "./playview.js";
+import { PlayService } from "./playService.js";
+import { PlayView } from "./playView.js";
 
 export class PlayController extends Controller {
     constructor(toGameManager, PcontentContainer) {

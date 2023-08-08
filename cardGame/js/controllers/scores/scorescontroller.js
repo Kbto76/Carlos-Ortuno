@@ -1,6 +1,6 @@
 import { Controller } from "../controller.js";
-import { ScoresService } from "./scoresservice.js";
-import { ScoresView } from "./scoresview.js";
+import { ScoresService } from "./scoresService.js";
+import { ScoresView } from "./scoresView.js";
 
 export class ScoresController extends Controller {
     constructor(toGameManager, PcontentContainer) {

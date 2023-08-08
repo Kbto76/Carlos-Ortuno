@@ -1,5 +1,5 @@
 import { Controller } from "../controller.js";//
-import { DifficultyView } from "./difficultyview.js";
+import { DifficultyView } from "./difficultyView.js";
 
 export class DifficultyController extends Controller {
     constructor(toGameManager, PcontentContainer) {

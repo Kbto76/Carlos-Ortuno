@@ -1,6 +1,6 @@
 import { THEME_ANIMALS, THEME_FACES, THEME_FOOD } from "../../libs/constants.js";
 import { createDiv } from "../../libs/html.js";
-import { ControllerView } from "../controllerview.js";
+import { ControllerView } from "../controllerView.js";
 
 export class ThemesView extends ControllerView {
     constructor(ToMenuController, PcontentContainer) {

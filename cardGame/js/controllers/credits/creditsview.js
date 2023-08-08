@@ -1,4 +1,4 @@
-import { ControllerView } from "../controllerview.js";
+import { ControllerView } from "../controllerView.js";
 
 export class CreditsView extends ControllerView {
     constructor(ToMenuController, PcontentContainer) {

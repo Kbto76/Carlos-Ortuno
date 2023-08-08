@@ -1,6 +1,6 @@
 import { DIFFICULTY_HIGH, DIFFICULTY_LOW, DIFFICULTY_MEDIUM } from "../../libs/constants.js";
 import { createDiv } from "../../libs/html.js";
-import { ControllerView } from "../controllerview.js";
+import { ControllerView } from "../controllerView.js";
 
 export class DifficultyView extends ControllerView {
     constructor(ToMenuController, PcontentContainer) {
