@@ -18,7 +18,6 @@ export class ScoresService extends Service {
                 data.forEach(scoreData => {
                     var score = new Score(scoreData.clicks, scoreData.score, scoreData.time, scoreData.username);
                     scores.push(score);
-                    console.log(score)
                 });
             } else {
                 console.error('Error requesting scores');

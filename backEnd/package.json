@@ -2,9 +2,9 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "backend",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
-    "run": "node main.js"
+    "run": "node index.js"
   },
   "author": "Carlos",
   "license": "ISC",

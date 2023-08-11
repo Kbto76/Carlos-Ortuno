@@ -30,7 +30,7 @@
 .contentContainer{
     background-color: #FCF1B9;
     width: 100%;
-    height: cal(100%-var(--navigationContainer--height));
+    height: calc(100%-var(--navigationContainer--height));
     /* overflow: scroll; */
     
     
@@ -52,7 +52,7 @@
 }
 
 /*NAV BAR*/
-.navigationContainer{
+.navigationContainer{    
     display: flex;    
     align-items: center;
     background-color:  #3677AA;
@@ -60,10 +60,10 @@
     width: 100%;
     flex-direction: row;
     color: white;
-    border-bottom: #2B3848 2px solid;    
-    border-top-left-radius: 20px;  
-    border-top-right-radius: 20px; 
-    margin-top: 20px;    
+    border-bottom: #2B3848 2px solid;      
+    /* border-top-left-radius: 20px;  
+    border-top-right-radius: 20px;  */
+    /* margin-top: 20px;     */
     
 }
 
