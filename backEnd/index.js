@@ -97,3 +97,4 @@ function shuffleArray(array) {
     }
 }
 
+module.exports = app;
