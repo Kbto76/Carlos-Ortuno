@@ -10,8 +10,8 @@ export class PlayService extends Service {
         var cards = [];
         //var url = '../../../data/cards.json';
         //var url = 'https://us-central1-cenfoprojectsbackend.cloudfunctions.net/app/cards/8/type/flags'
-        //var url = `https://us-central1-cenfoprojectsbackend.cloudfunctions.net/app/cards/${2}/type/${theme}`;
-        var url = `http://localhost:3000/cards/${difficulty}/${theme}`;
+        var url = `https://back-end-rho-woad.vercel.app/cards/${difficulty}/${theme}`;
+        //var url = `http://localhost:3000/cards/${difficulty}/${theme}`;
         //var url = `http://localhost:3000/cards/`;
         //var url = `https://us-central1-cenfoprojectsbackend.cloudfunctions.net/app/cards/${difficulty}/type/${theme}`;
         var request = new XMLHttpRequest();
@@ -33,8 +33,8 @@ export class PlayService extends Service {
 
     sendScore(score, clicks, time, username) {
         //console.log(username, clicks, timer);
-        var url = '../../../data/score.json';
-        //var url = 'https://us-central1-cenfoprojectsbackend.cloudfunctions.net/app/scores'
+        //var url = '../../../data/score.json';
+        var url = 'https://us-central1-cenfoprojectsbackend.cloudfunctions.net/app/scores'
         var request = new XMLHttpRequest();
         request.open('POST', url);
         request.send(JSON.stringify({ score: score, clicks: clicks, time: time, username: username }));
