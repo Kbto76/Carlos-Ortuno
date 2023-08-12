@@ -1,3 +1,4 @@
+const axios = require('axios');
 const express = require('express');
 const cors = require('cors');
 const app = express();
@@ -5,24 +6,27 @@ const port = 3000;
 
 app.use(cors());
 
+const dataBaseURL = 'https://cenfotecmemorygame-default-rtdb.firebaseio.com/';
+
 const food = ['🍏', '🍎', '🍐', '🍊', '🍋', '🍌', '🍉', '🍇', '🍓', '🍈🍒', '🍑', '🍍', '🥥', '🥝', '🍅', '🥑', '🍆', '🌶', '🥒', '🥦', '🌽', '🥕', '🥗', '🥔', '🍠', '🥜', '🍯', '🍞', '🥐', '🥖', '🥨', '🥞', '🧀', '🍗', '🍖', '🥩', '🍤', '🥚', '🍳', '🥓', '🍔', '🍟', '🌭', '🍕', '🍝', '🥪', '🥙', '🌮', '🌯', '🍜', '🥘', '🍲', '🥫', '🍥', '🍣', '🍱', '🍛', '🍙', '🍚', '🍘', '🥟', '🍢', '🍡', '🍧', '🍨', '🍦', '🍰', '🎂', '🥧', '🍮', '🍭', '🍬', '🍫', '🍿', '🍩', '🍪', '🥠', '☕', '🍵', '🥣', '🍼', '🥤', '🥛🍺', '🍻', '🍷', '🥂', '🥃', '🍸', '🍹', '🍾', '🍶', '🥄', '🍴', '🍽', '🥢', '🥡'];
 
 const faces = ['😀', '😬', '😁', '😂', '😃', '😄', '🤣', '😅', '😆', '😇', '😉', '😊', '🙂', '🙃', '😋', '😌', '😍', '😘', '😗', '😙', '😚', '🤪', '😜', '😝', '😛', '🤑', '😎', '🤓', '🧐', '🤠', '🤗', '🤡', '😏', '😶', '😐', '😑', '😒', '🙄', '🤨', '🤔', '🤫', '🤭', '🤥', '😳', '😞', '😟', '😠', '😡', '🤬', '😔', '😕', '🙁', '☹', '😣', '😖', '😫', '😩', '😤', '😮', '😱', '😨', '😰', '😯', '😦', '😧', '😢', '😥', '😪', '🤤', '😓', '😭', '🤩', '😵', '😲', '🤯', '🤐', '😷', '🤕', '🤒', '🤮', '🤢', '🤧', '😴', '😈', '👿', '👹', '👺', '💩', '👻', '💀', '☠', '👽', '🤖', '🎃'];
 
-const animals = ['🐶', '🐱', '🐭', '🐹', '🐰', '🐻', '🐼', '🐨', '🐯', '🦁', '🐮', '🐷', '🐸', '🐵', '🙈', '🙉', '🙊', '🦍', '🐔', '🐧', '🐦', '🐥', '🐺', '🦊', '🐗', '🐴', '🦓', '🦌', '🦄', '🐝', '🐛', '🦋', '🐌', '🐞', '🐜', '🦗', '', '🦂', '🐢', '🐍', '🦎', '🦀', '🦑', '🐙', '🦐', '🐠', '🐟', '🐡', '🐬', '🐳', '🐊', '🐆', '🐅', '🐃', '🐂', '🐄', '🐪', '🐘', '🦏', '🐐', '🐏', '🐑', '🐎', '🐖', '🦇', '🐓', '🦃', '🦅', '🦆', '🦉', '🐕', '🐩', '🐈', '🐇', '🐀'];
+const animals = ['🐶', '🐱', '🐭', '🐹', '🐰', '🐻', '🐼', '🐨', '🐯', '🦁', '🐮', '🐷', '🐸', '🐵', '🙈', '🙉', '🙊', '🦍', '🐔', '🐧', '🐦', '🐥', '🐺', '🦊', '🐗', '🐴', '🦓', '🦌', '🦄', '🐝', '🐛', '🦋', '🐌', '🐞', '🐜', '🦗', '🦂', '🐢', '🐍', '🦎', '🦀', '🦑', '🐙', '🦐', '🐠', '🐟', '🐡', '🐬', '🐳', '🐊', '🐆', '🐅', '🐃', '🐂', '🐄', '🐪', '🐘', '🦏', '🐐', '🐏', '🐑', '🐎', '🐖', '🦇', '🐓', '🦃', '🦅', '🦆', '🦉', '🐕', '🐩', '🐈', '🐇', '🐀'];
 
 app.get('/cards/:difficulty/:theme', (request, response) => {
 
     var data = { cards: [] };
 
     if (request.params !== null) {
-        if (request.params.difficulty !== null && request.params.type !== null) {
+        if (request.params.difficulty !== null && request.params.theme !== null) {
             const difficulty = request.params.difficulty;
             const theme = request.params.theme;
             var cards = getCards(difficulty, theme);
             cards.forEach(card => {
                 data.cards.push(card);
             });
+
             cards.forEach(card => {
                 data.cards.push(card);
             });
@@ -30,14 +34,47 @@ app.get('/cards/:difficulty/:theme', (request, response) => {
             shuffleArray(data.cards);
         }
     }
-
     response.send(JSON.stringify(data));
 });
 
 app.get('/scores', (request, response) => {
-    console.log(request);
-    console.log(request);
-    response.send('Lista de scores');
+    const url = `${dataBaseURL}/data/scores.json`;
+    axios.get(url).then(function (result) {
+        console.log(result.data)
+        response.send(result.data);
+    }).catch(function (error) {
+        console.log(error);
+        response.send('Error getting scores!');
+    }).finally(function () {
+        // always executed
+    });
+});
+
+app.post('/score', (request, response) => {
+    let body = [];
+    request.on('data', (chunk) => {
+        body.push(chunk);
+    }).on('end', () => {
+        const jsonData = Buffer.concat(body).toString();
+        if (jsonData !== undefined) {
+            const url = `${dataBaseURL}/data/scores.json`;
+            const score = JSON.parse(jsonData);
+            if (score !== undefined &&
+                score.clicks !== undefined &&
+                score.time !== undefined &&
+                score.score !== undefined) {
+                axios.post(url, score).then(function (result) {
+                    response.send('Score saved!');
+                }).catch(function (error) {
+                    response.send(error);
+                });
+            } else {
+                response.send('Score undefined or null!');
+            }
+        } else {
+            response.send('request.body undefined or null!');
+        }
+    });
 });
 
 // app.listen(port, () => {
@@ -45,9 +82,8 @@ app.get('/scores', (request, response) => {
 // });
 
 function randomInteger(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-
 
 function getIconIndex(iconIndex, length, cards) {
 
@@ -107,6 +143,5 @@ function shuffleArray(array) {
         [array[i], array[j]] = [array[j], array[i]];
     }
 }
-
 
 module.exports = app;

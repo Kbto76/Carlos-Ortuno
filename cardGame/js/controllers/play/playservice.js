@@ -33,7 +33,9 @@ export class PlayService extends Service {
 
     sendScore(score, clicks, time, username) {
         //console.log(username, clicks, timer);
-        var url = '../../../data/score.json';
+        //var url = '../../../data/score.json';
+        //var url = 'http://localhost:3000/score';
+        var url = 'https://back-end-rho-woad.vercel.app/score';
         //var url = 'https://us-central1-cenfoprojectsbackend.cloudfunctions.net/app/scores'
         var request = new XMLHttpRequest();
         request.open('POST', url);

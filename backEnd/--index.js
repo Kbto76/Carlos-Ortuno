@@ -5,8 +5,6 @@ const port = 3000;
 
 app.use(cors());
 
-//const dburl = 'https://cenfotecmemorygame.firebaseapp.com/'
-
 const food = ['🍏', '🍎', '🍐', '🍊', '🍋', '🍌', '🍉', '🍇', '🍓', '🍈🍒', '🍑', '🍍', '🥥', '🥝', '🍅', '🥑', '🍆', '🌶', '🥒', '🥦', '🌽', '🥕', '🥗', '🥔', '🍠', '🥜', '🍯', '🍞', '🥐', '🥖', '🥨', '🥞', '🧀', '🍗', '🍖', '🥩', '🍤', '🥚', '🍳', '🥓', '🍔', '🍟', '🌭', '🍕', '🍝', '🥪', '🥙', '🌮', '🌯', '🍜', '🥘', '🍲', '🥫', '🍥', '🍣', '🍱', '🍛', '🍙', '🍚', '🍘', '🥟', '🍢', '🍡', '🍧', '🍨', '🍦', '🍰', '🎂', '🥧', '🍮', '🍭', '🍬', '🍫', '🍿', '🍩', '🍪', '🥠', '☕', '🍵', '🥣', '🍼', '🥤', '🥛🍺', '🍻', '🍷', '🥂', '🥃', '🍸', '🍹', '🍾', '🍶', '🥄', '🍴', '🍽', '🥢', '🥡'];
 
 const faces = ['😀', '😬', '😁', '😂', '😃', '😄', '🤣', '😅', '😆', '😇', '😉', '😊', '🙂', '🙃', '😋', '😌', '😍', '😘', '😗', '😙', '😚', '🤪', '😜', '😝', '😛', '🤑', '😎', '🤓', '🧐', '🤠', '🤗', '🤡', '😏', '😶', '😐', '😑', '😒', '🙄', '🤨', '🤔', '🤫', '🤭', '🤥', '😳', '😞', '😟', '😠', '😡', '🤬', '😔', '😕', '🙁', '☹', '😣', '😖', '😫', '😩', '😤', '😮', '😱', '😨', '😰', '😯', '😦', '😧', '😢', '😥', '😪', '🤤', '😓', '😭', '🤩', '😵', '😲', '🤯', '🤐', '😷', '🤕', '🤒', '🤮', '🤢', '🤧', '😴', '😈', '👿', '👹', '👺', '💩', '👻', '💀', '☠', '👽', '🤖', '🎃'];
@@ -42,7 +40,6 @@ app.get('/scores', (request, response) => {
     response.send('Lista de scores');
 });
 
-
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
 });
@@ -51,14 +48,6 @@ function randomInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-
-// function getIconIndex(iconIndex, iconList) {
-//     let newIconIndex = randomInteger(0, (iconList.length - 1));
-//     if (iconIndex === newIconIndex) {
-//         return getIconIndex(iconIndex, iconList);
-//     }
-//     return newIconIndex;
-// };
 
 function getIconIndex(iconIndex, length, cards) {
 
@@ -78,28 +67,29 @@ function getIconIndex(iconIndex, length, cards) {
     return newIconIndex;
 };
 
-function getCards(difficulty, theme) {
+function getCards(dificulty, theme) {
     var cards = [];
-
     var iconList = null;
-
     switch (theme) {
         case 'food':
             iconList = food;
             break;
-        case 'animals':
-            iconList = animals;
+        case 'flags':
+            iconList = flags;
             break;
         case 'faces':
             iconList = faces;
+            break;
+        case 'animals':
+            iconList = animals;
             break;
         default:
             iconList = food;
             break;
     }
 
-    for (let i = 0; i < difficulty; i++) {
-        var iconIndex = getIconIndex(-1, iconList);
+    for (let i = 0; i < dificulty; i++) {
+        var iconIndex = getIconIndex(-1, iconList.length, cards);
         var card = {
             "isDiscovered": false,
             "icon": iconList[iconIndex],
@@ -107,7 +97,7 @@ function getCards(difficulty, theme) {
         }
         cards.push(card);
     }
-    console.log(cards);
+
     return cards;
 };
 
@@ -117,5 +107,6 @@ function shuffleArray(array) {
         [array[i], array[j]] = [array[j], array[i]];
     }
 }
+
 
 //module.exports = app;
