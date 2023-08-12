@@ -43,9 +43,9 @@ app.get('/scores', (request, response) => {
 });
 
 
-app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`);
-});
+// app.listen(port, () => {
+//     console.log(`Example app listening on port ${port}`);
+// });
 
 function randomInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
@@ -118,4 +118,4 @@ function shuffleArray(array) {
     }
 }
 
-//module.exports = app;
+module.exports = app;
