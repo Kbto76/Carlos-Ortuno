@@ -3,10 +3,12 @@
     align-items: center;
     justify-content: center;
     font-size: 25px;
-    border: red 5px solid;
-    width: 45px;
-    height: 61px; 
+    /*order: #A3282E 5px solid;*/
+    border: 5px double #EAEEEF;
+    width: 55px;
+    height: 71px; 
     cursor: pointer;  
+    border-radius: 5px;
     
 
 }
@@ -16,18 +18,18 @@
     align-items: center;
     justify-content: center;
     background-color: blueviolet;   
-    width: 50px; 
-    height: 70px;
+    width: 60px; 
+    height: 80px;
     margin-top: 5px;
-    
+    border-radius: 5px;
 } 
 
 .cardView-hidden{
-    background-color: aqua;
+    background-color:#3D8FD1;
 }
 
 .cardView-selected{
-background-color: rgb(137, 170, 93);
+background-color: #42805F;
 }
 
 .cardView-discovered{
