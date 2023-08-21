@@ -8,8 +8,6 @@ export class ScoresService extends Service {
     }
     getScores() {
         var scores = [];
-        //var url = '../../../data/score.json';
-        //var url = `https://us-central1-cenfoprojectsbackend.cloudfunctions.net/app/scores`;
         var url = `https://back-end-rho-woad.vercel.app/scores`;
         //var url = `http://localhost:3000/scores`
         var request = new XMLHttpRequest();
@@ -22,12 +20,6 @@ export class ScoresService extends Service {
                     let score = new Score(scoreData.clicks, scoreData.score, scoreData.time, scoreData.username);
                     scores.push(score);
                 }
-
-                // data.forEach(scoreData => {
-                //     var score = new Score(scoreData.clicks, scoreData.score, scoreData.time, scoreData.username);
-                //     scores.push(score);
-                //     console.log(score)
-                // });
             } else {
                 console.error('Error requesting scores');
             }

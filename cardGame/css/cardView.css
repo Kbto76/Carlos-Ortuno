@@ -3,7 +3,6 @@
     align-items: center;
     justify-content: center;
     font-size: 25px;
-    /*order: #A3282E 5px solid;*/
     border: 5px double #EAEEEF;
     width: 55px;
     height: 71px; 
@@ -33,5 +32,6 @@ background-color: #42805F;
 }
 
 .cardView-discovered{
-    background-color: rgb(160, 20, 20);
+    background-color: rgb(160, 20, 20);   
+    user-select: none;    
 }

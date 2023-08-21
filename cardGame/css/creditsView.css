@@ -1,11 +1,31 @@
-* .creditsView{
+.creditsView{
     display: flex;
+    position: fixed;     
+    align-items: left;
+    justify-content:center;
     width:100%;
     height: 100%;
-    font-size: 25px;
-    position: fixed;     
-    align-items: center;
-    justify-content: center;
+    font-size: 15px;     
     flex-direction: column;
     background-color: #FBF1BC;
+    line-height: 1.5;    
 } 
+
+.margin{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.social-media{     
+    text-align: left;
+    font-size: 15px;
+    width:100%;  
+    line-height: 1.5;  
+    font-weight: bold;
+    color: blue;
+    margin-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    cursor: pointer;
+}
+

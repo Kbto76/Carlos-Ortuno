@@ -6,7 +6,6 @@ export class CreditsController extends Controller {
         super(toGameManager)
         this.view = new CreditsView(this, PcontentContainer);
     }
-
 }
 
 

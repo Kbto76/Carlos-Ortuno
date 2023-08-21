@@ -20,6 +20,7 @@
 
 .login-txt{
     margin-top: 20px;
+    margin-bottom:10px ;
     font-size: 25px;
      
 }
@@ -37,4 +38,14 @@
     border-radius: 2px;
     color:white;
     cursor: pointer;  
+    border-radius: 10px;
+    border: 4px double #cccccc;
+}
+
+.OK-Button:hover {background-color: #254C6D}
+
+.OK-Button:active {
+  background-color: #89A295;
+  box-shadow: 0 2px #666;
+  transform: translateY(4px);
 }

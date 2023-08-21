@@ -8,11 +8,9 @@ export class ScoreView extends View {
         this.container.className = 'scoreView';
         var nameContainer = createDiv({ className: 'scoreView-nameContainer' }, this.container);
         var valuesContainer = createDiv({ className: 'scoreView-valuesContainer' }, this.container)
-
         var scoreContainer = createDiv({ className: 'scoreView-valueContainer' }, valuesContainer);
         var clicksContainer = createDiv({ className: 'scoreView-valueContainer' }, valuesContainer);
         var timeContainer = createDiv({ className: 'scoreView-valueContainer' }, valuesContainer);
-
         createP({ innerHTML: this.score.username }, nameContainer);
         createP({ innerHTML: 'SCORE', className: 'scoreView-value-title' }, scoreContainer);
         createP({ innerHTML: this.score.score, className: 'scoreView-value-description' }, scoreContainer);

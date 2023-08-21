@@ -8,7 +8,6 @@ export class ControllerView extends View {
         this.fadeContainer = createDiv({ className: 'ControllerView-fadeContainer' }, this.container)
         this.btnContainer = createDiv({ className: 'ControllerView-container' }, this.container);
         this.btnContainer.style.transform = `translateX(${window.innerWidth}px)`;
-        //this.callback = null;
         this.show();
     }
 
@@ -18,7 +17,7 @@ export class ControllerView extends View {
 
     show() {
         gsap.to(this.fadeContainer, { opacity: 0.5, duration: 1 });
-        gsap.to(this.btnContainer, { x: 0, duration: 0.75, ease: "expo.out" });
+        gsap.to(this.btnContainer, { x: 0, duration: 0.70, ease: "expo.out" });
 
     }
 

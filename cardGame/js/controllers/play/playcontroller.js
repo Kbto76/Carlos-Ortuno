@@ -9,16 +9,12 @@ export class PlayController extends Controller {
         this.cards = null;
         this.service = new PlayService(this);
         this.service.getCards(this.gameManager.difficulty, this.gameManager.theme);
-
         this.timer = null;
         this.time = 0;
         this.clicks = 0;
-
-        // this.view.container.addEventListener('card-selected', this.conCardSelected.bind(this));
         window.addEventListener('card-selected', (event) => {
             this.onCardSelected();
         });
-
         this.hiddenTimer = null;
     }
 
@@ -29,10 +25,7 @@ export class PlayController extends Controller {
     }
 
     resetGame() {
-        //window.clearTimeout(this.hiddenTimer);
         this.ResetTimer();
-        //// window.clearInterval(this.timer);
-        //// this.timer = null;
         this.time = 0;
         this.clicks = 0;
         this.service.getCards(this.gameManager.difficulty, this.gameManager.theme);
@@ -69,10 +62,8 @@ export class PlayController extends Controller {
             if (!card.isDiscovered) {
                 if (cardSelected1 === null && card.isSelected) {
                     cardSelected1 = card;
-                    //console.log('card1 ' + cardSelected1.icon)
                 } else if (cardSelected2 === null && card.isSelected) {
                     cardSelected2 = card;
-                    //console.log('card2 ' + cardSelected2.icon)
                 }
             }
         });
@@ -93,9 +84,22 @@ export class PlayController extends Controller {
                     var score = this.clicks + this.time;
                     this.service.sendScore(score, this.clicks, this.time, this.gameManager.username);
                     this.ResetTimer();
-                    //alert('GAME COMPLETED!');
-                    //console.log('GAME COMPLETED!');
-                    //TODO Show game complete controller?
+                    Swal.fire({
+                        title: 'NICE WORK!',
+                        text: 'YOU BEAT THE GAME',
+                        icon: 'success',
+                        timer: 2000,
+                        onOpen: function () {
+                            swal.showLoading()
+                        }
+                    }).then(
+                        function () { },
+                        function (dismiss) {
+                            if (dismiss === 'timer') {
+                                console.log('Desplegable cerrada')
+                            }
+                        }
+                    )
                 }
             } else {
                 this.hiddenTimer = window.setTimeout(() => {

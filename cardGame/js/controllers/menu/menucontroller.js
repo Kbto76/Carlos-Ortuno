@@ -6,12 +6,10 @@ export class MenuController extends Controller {
         super(toGameManager)
         this.view = new MenuView(this, PcontentContainer);
     }
-
     goto(state) {
         this.gameManager.goto(state);
         console.log(state);
     }
-
 }
 
 
